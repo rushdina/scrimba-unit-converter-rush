@@ -5,39 +5,60 @@
 */
 
 // ------ Constants ------
-const METER_TO_FEET = 3.281;
-const LITER_TO_GALLON = 0.264;
-const KILOGRAM_TO_POUND = 2.204;
+
+const CONVERSIONS = [
+  {
+    name: "Length",
+    unit1: "meters",
+    unit2: "feet",
+    factor: 3.281,
+    elId: "length-el",
+  },
+  {
+    name: "Volume",
+    unit1: "liters",
+    unit2: "gallons",
+    factor: 0.264,
+    elId: "volume-el",
+  },
+  {
+    name: "Mass",
+    unit1: "kilograms",
+    unit2: "pounds",
+    factor: 2.204,
+    elId: "mass-el",
+  },
+];
 
 // ------ Cache DOM elements ------
+
 const inputEl = document.getElementById("input-el");
 const convertBtn = document.getElementById("convert-btn");
-const lengthEl = document.getElementById("length-el");
-const volumeEl = document.getElementById("volume-el");
-const massEl = document.getElementById("mass-el");
+
+// ------ Functions ------
+
+function convertUnits(value, factor) {
+  return {
+    forward: (value * factor).toFixed(3),
+    backward: (value / factor).toFixed(3),
+  };
+}
+
+function updateConversionDisplay(value) {
+  CONVERSIONS.forEach((conv) => {
+    const result = convertUnits(value, conv.factor);
+    document.getElementById(
+      conv.elId
+    ).textContent = `${value} ${conv.unit1} = ${result.forward} ${conv.unit2} | ${value} ${conv.unit2} = ${result.backward} ${conv.unit1}`;
+  });
+}
 
 // ------ Event Listeners ------
+
 convertBtn.addEventListener("click", () => {
-    let inputValue = Number(inputEl.value); // convert string input value
+  const inputFloat = parseFloat(inputEl.value);
 
-    if (isNaN(inputValue)) {
-        return; // stop execution
-    }
+  if (isNaN(inputFloat)) return;
 
-    // Length conversion
-    let metersToFeet = (inputValue * METER_TO_FEET).toFixed(3);
-    let feetToMeters = (inputValue / METER_TO_FEET).toFixed(3);
-    lengthEl.textContent = `${inputValue} meters = ${metersToFeet} feet | ${inputValue} feet = ${feetToMeters} meters`;
-
-    // Volume conversion
-    let litersToGallons = (inputValue * LITER_TO_GALLON).toFixed(3);
-    let gallonsToLiters = (inputValue / LITER_TO_GALLON).toFixed(3);
-    volumeEl.textContent = `${inputValue} liters = ${litersToGallons} gallons | ${inputValue} gallons = ${gallonsToLiters} liters`;
-
-    // Mass conversion
-    let kilogramsToPounds = (inputValue * KILOGRAM_TO_POUND).toFixed(3);
-    let poundsToKilograms = (inputValue / KILOGRAM_TO_POUND).toFixed(3);
-    massEl.textContent = `${inputValue} kilograms = ${kilogramsToPounds} pounds | ${inputValue} pounds = ${poundsToKilograms} kilograms`;
-})
-
-
+  updateConversionDisplay(inputFloat);
+});
