@@ -30,7 +30,7 @@ This project is a simple **metric-to-imperial unit converter**. It allows users 
 
 ## 🖼️ Preview
 
-![Unit Converter Screenshot](images/screenshot-unitConverter.png)
+![Unit Converter Preview Screenshot](images/screenshot-unitConverter.png)
 
 ## 📚 Sources & References
 - Scrimba course: [Scrimba Frontend Developer Career Path](https://scrimba.com/frontend-path-c0j)  
