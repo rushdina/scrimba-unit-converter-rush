@@ -44,7 +44,7 @@ function convertUnits(value, factor) {
   };
 }
 
-function updateConversionDisplay(value) {
+function displayConversions(value) {
   CONVERSIONS.forEach((conv) => {
     const result = convertUnits(value, conv.factor);
     document.getElementById(
@@ -58,7 +58,11 @@ function updateConversionDisplay(value) {
 convertBtn.addEventListener("click", () => {
   const inputFloat = parseFloat(inputEl.value);
 
-  if (isNaN(inputFloat)) return;
-
-  updateConversionDisplay(inputFloat);
+  if (isNaN(inputFloat)) {
+    alert("Please enter a valid number");
+    return;
+  }
+  
+  displayConversions(inputFloat);
 });
+
