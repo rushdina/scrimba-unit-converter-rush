@@ -1,7 +1,7 @@
 # 🔄 Unit Converter
 
 A solo project from the [Scrimba Frontend Developer Career Path](https://scrimba.com/frontend-path-c0j).  
-This project is a simple **metric-to-imperial unit converter**. It allows users to quickly convert numbers between metric and imperial units for **length, volume, and mass**. Users enter a number, click **Convert**, and the converted values are displayed, rounded to **three decimal places** for readability.
+This project is a **metric-to-imperial unit converter** where users can input a number and instantly see conversions for **length**, **volume**, and **mass** between metric and imperial units, rounded to **three decimal places** for readability.
 
 ## 🛠️ Technologies
 - HTML5  
@@ -9,24 +9,23 @@ This project is a simple **metric-to-imperial unit converter**. It allows users 
 - JavaScript (ES6)
 
 ## 🚀 Features
-- Converts **length 📏, volume 🧪, and mass ⚖️** between metric and imperial units.  
-- Generates all conversions when the user clicks **Convert**.
-   - Length: meters ↔ feet  
-   - Volume: liters ↔ gallons  
-   - Mass: kilograms ↔ pounds  
-- Rounds numbers down to **three decimal places** for easy reading.  
-- Interactive and responsive UI.
+- Users can enter a number to convert it across multiple units in real-time.
+- Length conversions between meters and feet are calculated dynamically.
+- Volume conversions between liters and gallons are calculated dynamically.
+- Mass conversions between kilograms and pounds are calculated dynamically.
+- Input validation prevents invalid entries and alerts the user.
+- Conversion results are displayed clearly in the DOM for easy reading.
 
 ## 🧠 What I Learned / Process
-- Practiced **DOM manipulation** and event handling in JavaScript.  
-- Learned how to **format numbers** and handle rounding using `toFixed()`.  
-- Applied a **modular approach** with constants and reusable functions for cleaner code.  
+- Practiced reading values from user input and updating the DOM dynamically.
+- Learned to organize reusable functions for calculations (`convertUnits`) and rendering (`displayConversions`).
+- Learned how to **format numbers** and handle rounding using `toFixed()`.
+- Implemented basic input validation with `isNaN` to handle user errors gracefully.
 
 ## 💡 Future Improvements
-- Add a **dark mode toggle** for better UX.  
-- Allow **real-time conversion** as users type.  
+- Add more unit categories (temperature, speed, time, etc.).
+- Allow live conversion while typing (instead of clicking a button).
 - Add **input validation and error messages** for invalid entries.
-- Enhance accessibility (aria labels, keyboard navigation).
 
 ## 🖼️ Preview
 
